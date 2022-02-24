@@ -1,0 +1,9 @@
+.footer-bg{
+    background-color: #995433;
+    padding: 1rem 0;
+}
+
+.footer-bg p {
+    color: white;
+    font-weight: 600;
+}

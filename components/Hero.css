@@ -1,0 +1,66 @@
+.hero{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-bg{
+    background-image: url(../public/hero.png);
+    background-size: cover;
+    background-position: center center;
+    padding: 9rem 0;
+    box-shadow: 0px -10px 19px black;
+}
+
+.hero h2{
+    color: white;
+    text-align: center;
+}
+
+.infoLibro{
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 0;
+    
+    box-shadow: 0px 0px 35px 11px rgba(0,0,0,0.77);
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
+    padding: 1rem;
+}
+
+.centradoIMG{
+    display: flex;
+    justify-content: center;
+}
+
+.seccionTitulo{
+    margin-bottom: 2rem;
+}
+
+.seccionMini{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.seccionMini h4 {
+    margin: 0.5rem 0;
+}
+
+.seccionDesc{
+    display: flex;
+    flex-direction: column;
+}
+
+.seccionDesc h4{
+    margin-bottom: 0;
+}
+
+@media (min-width: 768px){
+    .hero-bg{
+        background-image: url(../public/hero.png);
+        padding: 12rem 0;
+        box-shadow: 0px -10px 19px black;
+    }
+    
+}

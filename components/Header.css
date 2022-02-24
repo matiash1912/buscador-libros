@@ -1,0 +1,12 @@
+.header{
+    display: flex;
+    justify-content: center;
+}
+
+.header-bg{
+    background-image: url(../public/header-bg.jpg);
+}
+
+.header h1{
+    color: white;
+}
