@@ -22,7 +22,7 @@ const Hero = () => {
         try {
             const resultado = async () => {
                 const busqueda = await inputRef.current.value
-                const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${busqueda}`)
+                const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${busqueda}&maxResults=30`)
                 const data = await response.json()
         
                 setLibro(data.items)
