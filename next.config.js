@@ -3,4 +3,7 @@ module.exports = {
   images: {
     domains: ["books.google.com"],
   },
+  i18: {
+    defaultLocale: 'es-Cl'
+  }
 }
