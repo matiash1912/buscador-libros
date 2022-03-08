@@ -31,7 +31,7 @@ const Libro = ({data}) => {
 export default Libro
 
 export const getServerSideProps = async ({params}) => {
-    const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${params.id}`)
+    const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${params.id}&key=AIzaSyD8_MkjlQ3BARL95xOUY0QzgrAlEHbXU9w`)
     const data = await response.json()
 
     return {
