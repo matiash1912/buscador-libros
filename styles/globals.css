@@ -41,6 +41,11 @@ p{
 
 a{
   text-decoration: none;
+  color: black;
+}
+
+a:hover{
+  color: #0c2999;
 }
 
 /* Utilidades */

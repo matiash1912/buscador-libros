@@ -17,10 +17,35 @@
     text-align: center;
 }
 
+.listado{
+    padding-top: 2rem;
+}
+
+.lista{
+    display: flex;
+    align-items: center;
+    gap: 10%;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid black;
+}
+
+.lista p {
+    font-size: 1.4rem;
+}
+
+.lista:last-of-type{
+    border-bottom: none;
+}
+
+.img-thumb:hover{
+    cursor: pointer;
+}
+
 .infoLibro{
     display: flex;
     flex-direction: column;
     padding: 4rem 0;
+    background-color: white;
     
     box-shadow: 0px 0px 35px 11px rgba(0,0,0,0.77);
     margin-top: 2rem !important;
@@ -56,11 +81,16 @@
     margin-bottom: 0;
 }
 
+
 @media (min-width: 768px){
     .hero-bg{
         background-image: url(../public/hero.png);
         padding: 12rem 0;
         box-shadow: 0px -10px 19px black;
+    }
+
+    .lista p {
+        font-size: 1.8rem;
     }
     
 }

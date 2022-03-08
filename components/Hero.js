@@ -1,37 +1,40 @@
+
 import { useRef, useEffect, useState} from "react";
+import Link from "next/link";
 
 const Hero = () => {
-    const [libro, setLibro] = useState("")
+    const [Libro, setLibro] = useState("")
 
     const inputRef = useRef("")
     const formRef = useRef("")
+   
+ const getLibro = Libro
     
    useEffect(() => {
+    
         formRef.current.addEventListener("submit", (e) => {
             e.preventDefault()
         })
 
     }, [])
 
-    const resultados = async () => {
-        const busqueda = await inputRef.current.value
-        const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${busqueda}`)
-        const data = await response.json()
-
-        setLibro(data)
+    const resultados = () => {
+        try {
+            const resultado = async () => {
+                const busqueda = await inputRef.current.value
+                const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${busqueda}`)
+                const data = await response.json()
         
+                setLibro(data.items)
+                
+            }
+            resultado()
+        } catch (error) {
+            return(
+                <p>Ha habido un error en la conexion</p>
+            )
+        }
     }
-
-    const getLibro = libro
-    // console.log(getLibro)
-    
-    const libroTitulo = getLibro?.items?.[0].volumeInfo?.title
-    const libroSnippet = getLibro?.items?.[0].searchInfo?.textSnippet
-    const libroImagen = getLibro?.items?.[0].volumeInfo?.imageLinks?.thumbnail
-    const libroAutor = getLibro?.items?.[0].volumeInfo?.authors?.[0]
-    const libroDescripcion = getLibro?.items?.[0].volumeInfo?.description
-    const libroCategoria = getLibro?.items?.[0].volumeInfo?.categories
-
     return(
         <div>
             <div className="hero-bg" >
@@ -43,26 +46,21 @@ const Hero = () => {
                     </form>
                 </div>
             </div>
-            <div className="infoLibro centrado" >
-                <div className="centradoIMG" >
-                    <img className="libroIMG" src={libroImagen} />
-                </div>
-                <div className="seccionTitulo">
-                    <h3>{libroTitulo}</h3>
-                    <span>{libroSnippet}</span>
-                </div>
-                <div className="seccionMini" >
-                    <h4>Autor:</h4>
-                    <p>{libroAutor ? libroAutor : "Autor no disponible"}</p>
-                </div>
-                <div className="seccionMini" >
-                    <h4>Categoria:</h4>
-                    <p>{libroCategoria ? libroCategoria : "Categoria no disponible"}</p>
-                </div>
-                <div className="seccionDesc" >
-                    <h4>Descripcion:</h4>
-                    <p>{libroDescripcion ? libroDescripcion : "Descripcion no disponible"}</p>
-                </div>
+            <div className=" listado centrado" >
+                {getLibro ? getLibro.map((item) => {
+                    const id = item.id
+                    return(
+                        <div className="lista">
+                            <div className="">
+                               {item.volumeInfo?.imageLinks?.thumbnail? <Link href={`libros/${id}`} ><img className="img-thumb" src={item.volumeInfo?.imageLinks?.thumbnail}/></Link> : <p>No hay imagen</p>}
+                            </div>
+                            <div>
+                                <h4><Link href={`libros/${id}`} target="_blank" >{item.volumeInfo?.title}</Link></h4>
+                                {item.searchInfo?.textSnippet ? <p>{item.searchInfo?.textSnippet}</p> : <p>Descripcion no disponible</p>}
+                            </div>
+                        </div>
+                    )
+                }) : null }
             </div>
         </div>
 
