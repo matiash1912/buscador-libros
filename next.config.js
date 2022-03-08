@@ -4,7 +4,7 @@ module.exports = {
     domains: ["books.google.com"],
   },
   i18n: {
-    locales: ['es-CL', 'en-US'],
+    locales: ["en-US, es"],
     defaultLocale: 'es-Cl'
   }
 }
