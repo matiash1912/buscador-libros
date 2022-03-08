@@ -50,7 +50,7 @@ const Hero = () => {
             </div>
             <div className=" listado centrado" >
                 {getLibro ? getLibro.map((item) => {
-                    const id = item.volumeInfo?.title
+                    const id = item.id
                     return(
                         <div className="lista">
                             <div className="">

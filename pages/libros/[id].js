@@ -1,5 +1,5 @@
 const Libro = ({data}) => {
-
+    console.log(data)
     const info = data.items?.[0]
     return (
         <div className="hero-bg">
