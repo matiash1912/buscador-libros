@@ -26,6 +26,8 @@ const Hero = () => {
                 const data = await response.json()
         
                 setLibro(data.items)
+
+                console.log(data.items)
                 
             }
             resultado()
@@ -48,7 +50,7 @@ const Hero = () => {
             </div>
             <div className=" listado centrado" >
                 {getLibro ? getLibro.map((item) => {
-                    const id = item.id
+                    const id = item.volumeInfo?.title
                     return(
                         <div className="lista">
                             <div className="">
