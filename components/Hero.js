@@ -22,7 +22,7 @@ const Hero = () => {
         try {
             const resultado = async () => {
                 const busqueda = await inputRef.current.value
-                const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${busqueda}&maxResults=30&key=AIzaSyD8_MkjlQ3BARL95xOUY0QzgrAlEHbXU9w&country=CL`)
+                const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${busqueda}&maxResults=30&key=AIzaSyD8_MkjlQ3BARL95xOUY0QzgrAlEHbXU9w`)
                 const data = await response.json()
         
                 setLibro(data.items)
@@ -50,7 +50,7 @@ const Hero = () => {
             </div>
             <div className=" listado centrado" >
                 {getLibro ? getLibro.map((item) => {
-                    const id = item.id
+                    const id = [item.id, item.volumeInfo?.authors[0]]
                     return(
                         <div className="lista">
                             <div className="">
