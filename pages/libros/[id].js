@@ -31,10 +31,14 @@ const Libro = ({data}) => {
 export default Libro
 
 export const getServerSideProps = async ({params}) => {
-    const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${params.id}`)
+    console.log(params.id)
+    const splitParams = params.id.split(",")
+    console.log(splitParams)
+    const id = splitParams[0]
+    const autor = splitParams[1]
+    const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${id}+inauthor:${autor}`)
     const data = await response.json()
     
-    console.log(params)
 
     return {
         props: {data}
