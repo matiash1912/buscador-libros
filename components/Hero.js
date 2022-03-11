@@ -27,7 +27,6 @@ const Hero = () => {
         
                 setLibro(data.items)
 
-                console.log(data.items)
                 
             }
             resultado()

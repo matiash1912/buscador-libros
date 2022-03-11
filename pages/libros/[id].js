@@ -1,5 +1,4 @@
 const Libro = ({data}) => {
-    console.log(data)
     const info = data.items?.[0]
     return (
         <div className="hero-bg">
@@ -31,9 +30,7 @@ const Libro = ({data}) => {
 export default Libro
 
 export const getServerSideProps = async ({params}) => {
-    console.log(params.id)
     const splitParams = params.id.split(",")
-    console.log(splitParams)
     const id = splitParams[0]
     const autor = splitParams[1]
     const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${id}+inauthor:${autor}`)
